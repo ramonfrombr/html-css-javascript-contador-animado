@@ -25,3 +25,19 @@ function executarAnimacao() {
 }
 
 executarAnimacao();
+
+function reiniciarDOM() {
+    contador.classList.remove("esconder");
+    mensagemFinal.classList.remove("exibir");
+
+    numeros.forEach((numero) => {
+        numero.classList.value = "";
+    });
+
+    numeros[0].classList.add("numero-entrando");
+}
+
+repetir.addEventListener("click", () => {
+    reiniciarDOM();
+    executarAnimacao();
+});
