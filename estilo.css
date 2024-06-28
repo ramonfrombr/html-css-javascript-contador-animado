@@ -84,12 +84,12 @@ h4 {
     transform-origin: bottom center;
 }
 
-.numeros span.numero-atual {
+.numeros span.numero-entrando {
     transform: translate(-50%, -50%) rotate(0deg);
     animation: entrar 0.5s ease-in-out;
 }
 
-.numeros span.numero-nao-atual {
+.numeros span.numero-saindo {
     animation: sair 0.5s ease-in-out;
 }
 
