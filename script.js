@@ -3,7 +3,25 @@ const contador = document.querySelector(".contador");
 const mensagemFinal = document.querySelector(".final");
 const repetir = document.querySelector("#repetir");
 
-console.log(numeros);
-console.log(contador);
-console.log(mensagemFinal);
-console.log(repetir);
+function executarAnimacao() {
+    numeros.forEach((numero, indice) => {
+        const ultimoIndice = numeros.length - 1;
+
+        numero.addEventListener("animationend", (evento) => {
+            if (evento.animationName === "entrar" && indice !== ultimoIndice) {
+                numero.classList.remove("numero-entrando");
+                numero.classList.add("numero-saindo");
+            } else if (
+                evento.animationName === "sair" &&
+                numero.nextElementSibling
+            ) {
+                numero.nextElementSibling.classList.add("numero-entrando");
+            } else {
+                contador.classList.add("esconder");
+                mensagemFinal.classList.add("exibir");
+            }
+        });
+    });
+}
+
+executarAnimacao();
